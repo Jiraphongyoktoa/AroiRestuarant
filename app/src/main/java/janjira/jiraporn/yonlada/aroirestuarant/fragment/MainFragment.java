@@ -3,6 +3,7 @@ package janjira.jiraporn.yonlada.aroirestuarant.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 
 import java.lang.reflect.Member;
 
+import janjira.jiraporn.yonlada.aroirestuarant.MainActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.R;
 
 /**
@@ -25,7 +27,17 @@ public class MainFragment  extends Fragment{
        // Member Controller
         memberController();
 
+        //Create Toolber
+        createToolber();
+
+
     }  // Main Method
+
+    private void createToolber() {
+        Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        getActivity().setTitle(getString(R.string.promotion));
+    }
 
     private void memberController() {
         ImageView imageView =getView().findViewById(R.id.imvMember);
