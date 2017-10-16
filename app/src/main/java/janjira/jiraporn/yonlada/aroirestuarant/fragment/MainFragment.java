@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import java.lang.reflect.Member;
 
 import janjira.jiraporn.yonlada.aroirestuarant.R;
 
@@ -14,6 +17,27 @@ import janjira.jiraporn.yonlada.aroirestuarant.R;
  */
 
 public class MainFragment  extends Fragment{
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+       // Member Controller
+        memberController();
+
+    }  // Main Method
+
+    private void memberController() {
+        ImageView imageView =getView().findViewById(R.id.imvMember);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contentFragmentMain,new AuthenFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
+    }
 
     @Nullable
     @Override
