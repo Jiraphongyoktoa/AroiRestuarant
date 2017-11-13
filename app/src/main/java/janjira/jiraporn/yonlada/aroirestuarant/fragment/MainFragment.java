@@ -24,32 +24,31 @@ public class MainFragment  extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-       // Member Controller
-        memberController();
-
         //Create Toolber
         createToolber();
 
 
     }  // Main Method
 
+
     private void createToolber() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         getActivity().setTitle(getString(R.string.promotion));
-    }
 
-    private void memberController() {
-        ImageView imageView =getView().findViewById(R.id.imvMember);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_action_add_member);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.contentFragmentMain,new AuthenFragment())
+                        .replace(R.id.contentFragmentMain, new AuthenFragment())
                         .addToBackStack(null).commit();
             }
         });
     }
+
 
     @Nullable
     @Override
