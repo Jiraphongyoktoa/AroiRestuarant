@@ -7,6 +7,12 @@ package janjira.jiraporn.yonlada.aroirestuarant.utility;
 public class MyConstanct {
     private  String urlPromotionString ="http://androidthai.in.th/mua/getAllData.php";
 
+    private String[] columnUSER = new String[]{"id", "Title", "Detail", "lmage"};
+
+    public String[] getColumnUSER() {
+        return columnUSER;
+    }
+
     public String getUrlPromotionString() {
         return urlPromotionString;
     }

@@ -15,7 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Title-->
         <TextView
+            android:textColor="@color/colorPrimaryDark"
             android:id="@+id/txtTitle"
             android:textStyle="bold"
             android:text="Title"
@@ -23,7 +25,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!--Detail-->
         <TextView
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="@color/colorPrimary"
             android:id="@+id/txtDetail"
             android:textStyle="italic"
             android:text="detail ..."
