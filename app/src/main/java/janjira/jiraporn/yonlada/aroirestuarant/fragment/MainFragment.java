@@ -1,5 +1,6 @@
 package janjira.jiraporn.yonlada.aroirestuarant.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -18,6 +20,7 @@ import java.lang.reflect.Member;
 
 import janjira.jiraporn.yonlada.aroirestuarant.MainActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.R;
+import janjira.jiraporn.yonlada.aroirestuarant.SerciveOrderActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.GetAllData;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.MyAdapter;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.MyConstanct;
@@ -28,12 +31,29 @@ import janjira.jiraporn.yonlada.aroirestuarant.utility.MyConstanct;
 
 public class MainFragment extends Fragment {
 
+    //    Explicit
+    private String tag = "30novV1";
+    private int indexAnInt = 0;
+
+
+
+    public static MainFragment mainInstance(int index) {
+
+        MainFragment mainFragment = new MainFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("Index", index);
+        mainFragment.setArguments(bundle);
+        return mainFragment;
+
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Create Toolber
-        createToolber();
+//        Receive index from Activity
+        indexAnInt = getArguments().getInt("Index");
+        Log.d(tag, "Index Receive ==> " + indexAnInt);
 
 //        Create ListView
         createListView();
@@ -45,11 +65,12 @@ public class MainFragment extends Fragment {
         MyConstanct myConstanct = new MyConstanct();
         String[] columnUserStrings = myConstanct.getColumnUSER();
         String tag = "15novV1";
+        String[] categoryStrings = myConstanct.getCategoryStrings();
 
         try {
 
             GetAllData getAllData = new GetAllData(getActivity());
-            getAllData.execute(myConstanct.getUrlPromotionString());
+            getAllData.execute(categoryStrings[indexAnInt], myConstanct.getUrlPromotionString());
             String resultJSON = getAllData.get();
             Log.d(tag, "JSON ==> " + resultJSON);
 
@@ -61,39 +82,31 @@ public class MainFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i += 1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                titleStrings[i] = jsonObject.getString(columnUserStrings[1]);
-                detailStrings[i] = jsonObject.getString(columnUserStrings[2]);
-                iconStrings[i] = jsonObject.getString(columnUserStrings[3]);
+                titleStrings[i] = jsonObject.getString(columnUserStrings[2]);
+                detailStrings[i] = jsonObject.getString(columnUserStrings[4]);
+                iconStrings[i] = jsonObject.getString(columnUserStrings[5]);
 
             }
+
 
             MyAdapter myAdapter = new MyAdapter(getActivity(),
                     titleStrings, detailStrings, iconStrings);
             listView.setAdapter(myAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+//                    Intent to ServiceOrder
+                    Intent intent = new Intent(getActivity(), SerciveOrderActivity.class);
+                    startActivity(intent);
+
+                }
+            });
 
         } catch (Exception e) {
             Log.d(tag, "e ==> " + e.toString());
         }
 
-    }
-
-
-    private void createToolber() {
-        Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
-        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        getActivity().setTitle(getString(R.string.promotion));
-
-        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_action_add_member);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.contentFragmentMain, new AuthenFragment())
-                        .addToBackStack(null).commit();
-            }
-        });
     }
 
 

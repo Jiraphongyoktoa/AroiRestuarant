@@ -2,4 +2,6 @@
     <string name="app_name">Aroi Restuarant</string>
     <string name="title_authen">ระบบสมาชิก</string>
     <string name="promotion">Promotion</string>
+    <string name="open">Open Drawer</string>
+    <string name="close">Close Drawer</string>
 </resources>

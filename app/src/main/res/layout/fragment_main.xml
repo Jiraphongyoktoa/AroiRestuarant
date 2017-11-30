@@ -5,12 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--Toolbar-->
-    <include
-        android:id="@+id/toolbarMain"
-        layout="@layout/my_toolbar" />
-
-
     <!--Promotion ListView-->
     <ListView
         android:id="@+id/livShowPromotion"
