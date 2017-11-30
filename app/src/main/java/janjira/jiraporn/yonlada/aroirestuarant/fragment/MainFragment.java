@@ -88,6 +88,7 @@ public class MainFragment extends Fragment {
 
             }
 
+
             MyAdapter myAdapter = new MyAdapter(getActivity(),
                     titleStrings, detailStrings, iconStrings);
             listView.setAdapter(myAdapter);
