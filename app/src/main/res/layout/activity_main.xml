@@ -27,16 +27,113 @@
 
     <!--Drawer Menu-->
     <LinearLayout
+        android:padding="@dimen/padding"
         android:layout_width="320dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drawer Menu" />
+        <!--Home of Promote-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_promote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--TextField-->
+            <TextView
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:id="@+id/txtHome"
+                android:text="Test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--อาหารจานด่วน-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_single_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--TextField-->
+            <TextView
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:id="@+id/txtSingleFood"
+                android:text="Test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--แกง-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_soup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--TextField-->
+            <TextView
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:id="@+id/txtSoup"
+                android:text="Test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--ปิ้ง/ย่าง/ทอด-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_burn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--TextField-->
+            <TextView
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/h2"
+                android:id="@+id/txtburn"
+                android:text="Test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

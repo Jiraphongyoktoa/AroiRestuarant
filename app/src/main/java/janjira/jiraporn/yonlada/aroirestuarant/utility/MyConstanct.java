@@ -5,9 +5,36 @@ package janjira.jiraporn.yonlada.aroirestuarant.utility;
  */
 
 public class MyConstanct {
-    private  String urlPromotionString ="http://androidthai.in.th/mua/getAllData.php";
 
-    private String[] columnUSER = new String[]{"id", "Title", "Detail", "lmage"};
+    //    URL
+    private String urlPromotionString = "http://androidthai.in.th/mua/getAllData.php";
+
+
+    //    Array
+    private String[] columnUSER = new String[]{
+            "id",
+            "Category",
+            "NameFood",
+            "Price",
+            "Detail",
+            "ImagePath",
+            "NameReview",
+            "DetailReview",
+            "ScoreReview"};
+
+    private String[] categoryStrings = new String[]{
+            "โปรโมชั่น",
+            "อาหารจานด่วน",
+            "แกง",
+            "ปิ้ง/ย่าง/ทอด",
+            "อาหารชุด", "เส้น", "นำ้พริก", ""};
+
+    //    Method
+
+
+    public String[] getCategoryStrings() {
+        return categoryStrings;
+    }
 
     public String[] getColumnUSER() {
         return columnUSER;

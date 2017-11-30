@@ -28,12 +28,29 @@ import janjira.jiraporn.yonlada.aroirestuarant.utility.MyConstanct;
 
 public class MainFragment extends Fragment {
 
+    //    Explicit
+    private String tag = "30novV1";
+    private int indexAnInt = 0;
+
+
+
+    public static MainFragment mainInstance(int index) {
+
+        MainFragment mainFragment = new MainFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("Index", index);
+        mainFragment.setArguments(bundle);
+        return mainFragment;
+
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Create Toolber
-        //createToolber();
+//        Receive index from Activity
+        indexAnInt = getArguments().getInt("Index");
+        Log.d(tag, "Index Receive ==> " + indexAnInt);
 
 //        Create ListView
         createListView();
@@ -45,11 +62,12 @@ public class MainFragment extends Fragment {
         MyConstanct myConstanct = new MyConstanct();
         String[] columnUserStrings = myConstanct.getColumnUSER();
         String tag = "15novV1";
+        String[] categoryStrings = myConstanct.getCategoryStrings();
 
         try {
 
             GetAllData getAllData = new GetAllData(getActivity());
-            getAllData.execute(myConstanct.getUrlPromotionString());
+            getAllData.execute(categoryStrings[indexAnInt], myConstanct.getUrlPromotionString());
             String resultJSON = getAllData.get();
             Log.d(tag, "JSON ==> " + resultJSON);
 
@@ -61,9 +79,9 @@ public class MainFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i += 1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                titleStrings[i] = jsonObject.getString(columnUserStrings[1]);
-                detailStrings[i] = jsonObject.getString(columnUserStrings[2]);
-                iconStrings[i] = jsonObject.getString(columnUserStrings[3]);
+                titleStrings[i] = jsonObject.getString(columnUserStrings[2]);
+                detailStrings[i] = jsonObject.getString(columnUserStrings[4]);
+                iconStrings[i] = jsonObject.getString(columnUserStrings[5]);
 
             }
 
