@@ -1,5 +1,6 @@
 package janjira.jiraporn.yonlada.aroirestuarant.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -18,6 +20,7 @@ import java.lang.reflect.Member;
 
 import janjira.jiraporn.yonlada.aroirestuarant.MainActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.R;
+import janjira.jiraporn.yonlada.aroirestuarant.SerciveOrderActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.GetAllData;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.MyAdapter;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.MyConstanct;
@@ -88,6 +91,16 @@ public class MainFragment extends Fragment {
             MyAdapter myAdapter = new MyAdapter(getActivity(),
                     titleStrings, detailStrings, iconStrings);
             listView.setAdapter(myAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+//                    Intent to ServiceOrder
+                    Intent intent = new Intent(getActivity(), SerciveOrderActivity.class);
+                    startActivity(intent);
+
+                }
+            });
 
         } catch (Exception e) {
             Log.d(tag, "e ==> " + e.toString());
