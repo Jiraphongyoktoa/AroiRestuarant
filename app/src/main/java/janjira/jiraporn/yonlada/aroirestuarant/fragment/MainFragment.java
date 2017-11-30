@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //Create Toolber
-        createToolber();
+        //createToolber();
 
 //        Create ListView
         createListView();
@@ -75,25 +75,6 @@ public class MainFragment extends Fragment {
             Log.d(tag, "e ==> " + e.toString());
         }
 
-    }
-
-
-    private void createToolber() {
-        Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
-        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        getActivity().setTitle(getString(R.string.promotion));
-
-        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_action_add_member);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.contentFragmentMain, new AuthenFragment())
-                        .addToBackStack(null).commit();
-            }
-        });
     }
 
 
