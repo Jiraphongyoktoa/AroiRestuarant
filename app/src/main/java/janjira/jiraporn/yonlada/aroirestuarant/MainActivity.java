@@ -20,9 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;
-    private TextView homeTextView, singleFoodTextView, sopeTextView, burnTextView;
+    private TextView homeTextView, singleFoodTextView, sopeTextView,
+            burnTextView, setFoodTextView, nudleTextView, chiliTextView,
+            streamTextView, candyTextView, fruidTextView, drinkTextView;
     private int indexAnInt = 1;
-
 
 
     @Override
@@ -48,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         singleFoodTextView = findViewById(R.id.txtSingleFood);
         sopeTextView = findViewById(R.id.txtSoup);
         burnTextView = findViewById(R.id.txtburn);
+        setFoodTextView = findViewById(R.id.txtSetFood);
+        nudleTextView = findViewById(R.id.txtNudle);
+        chiliTextView = findViewById(R.id.txtChili);
+        streamTextView = findViewById(R.id.txtsteam);
+        candyTextView = findViewById(R.id.txtCandy);
+        fruidTextView = findViewById(R.id.txtFruit);
+        drinkTextView = findViewById(R.id.txtDrink);
 
 //        Show View
         MyConstanct myConstanct = new MyConstanct();
@@ -56,12 +64,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         singleFoodTextView.setText(categoryStrings[1]);
         sopeTextView.setText(categoryStrings[2]);
         burnTextView.setText(categoryStrings[3]);
+        setFoodTextView.setText(categoryStrings[4]);
+        nudleTextView.setText(categoryStrings[5]);
+        chiliTextView.setText(categoryStrings[6]);
+        streamTextView.setText(categoryStrings[7]);
+        candyTextView.setText(categoryStrings[8]);
+        fruidTextView.setText(categoryStrings[9]);
+        drinkTextView.setText(categoryStrings[10]);
 
 //        Listener
         homeTextView.setOnClickListener(MainActivity.this);
         singleFoodTextView.setOnClickListener(MainActivity.this);
         sopeTextView.setOnClickListener(MainActivity.this);
         burnTextView.setOnClickListener(MainActivity.this);
+        setFoodTextView.setOnClickListener(MainActivity.this);
+        nudleTextView.setOnClickListener(MainActivity.this);
+        chiliTextView.setOnClickListener(MainActivity.this);
+        streamTextView.setOnClickListener(MainActivity.this);
+        candyTextView.setOnClickListener(MainActivity.this);
+        fruidTextView.setOnClickListener(MainActivity.this);
+        drinkTextView.setOnClickListener(MainActivity.this);
 
     }
 
@@ -123,6 +145,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.txtburn:
                 indexAnInt = 3;
+                break;
+            case R.id.txtSetFood:
+                indexAnInt = 4;
+                break;
+            case R.id.txtNudle:
+                indexAnInt = 5;
+                break;
+            case R.id.txtChili:
+                indexAnInt = 6;
+                break;
+            case R.id.txtsteam:
+                indexAnInt = 7;
+                break;
+            case R.id.txtCandy:
+                indexAnInt = 8;
+                break;
+            case R.id.txtFruit:
+                indexAnInt = 9;
+                break;
+            case R.id.txtDrink:
+                indexAnInt = 10;
                 break;
         }
 
