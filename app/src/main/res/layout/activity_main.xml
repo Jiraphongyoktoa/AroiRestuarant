@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context="janjira.jiraporn.yonlada.aroirestuarant.MainActivity">
 
-    <!--Content of Fragment-->
-    <FrameLayout
-        android:id="@+id/contentFragmentMain"
+    <!--Content of Toolbar and Fragment-->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <!--Toolbar-->
+        <include
+            android:id="@+id/toolbarMain"
+            layout="@layout/my_toolbar" />
+
+        <!--Content of Fragment-->
+        <FrameLayout
+            android:id="@+id/contentFragmentMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
     <!--Drawer Menu-->
     <LinearLayout
@@ -26,6 +39,5 @@
             android:text="Drawer Menu" />
 
     </LinearLayout>
-
 
 </android.support.v4.widget.DrawerLayout>
