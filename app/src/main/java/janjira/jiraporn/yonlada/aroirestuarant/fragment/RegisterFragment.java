@@ -65,6 +65,13 @@ public class RegisterFragment extends Fragment {
             PostNewUser postNewUser = new PostNewUser(getActivity());
             postNewUser.execute(nameString, userString, passwordString, myConstanct.getUrlAddUserString());
 
+            String result = postNewUser.get();
+            if (Boolean.parseBoolean(result)) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            } else {
+                Toast.makeText(getActivity(), "Cannot Upload", Toast.LENGTH_SHORT).show();
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

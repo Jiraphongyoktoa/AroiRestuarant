@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import janjira.jiraporn.yonlada.aroirestuarant.fragment.DetailFragment;
 import janjira.jiraporn.yonlada.aroirestuarant.fragment.RegisterFragment;
 
 public class SerciveOrderActivity extends AppCompatActivity {
@@ -21,6 +22,12 @@ public class SerciveOrderActivity extends AppCompatActivity {
 //        Create Toolbar
         createToolbar();
 
+//        Add Fragment
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.contenfragmentService, new DetailFragment()).commit();
+        }
+
     }   // Main Method
 
     @Override
@@ -34,7 +41,9 @@ public class SerciveOrderActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.itemMenuNewRegister) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contenfragmentService, new RegisterFragment()).commit();
+                    .replace(R.id.contenfragmentService, new RegisterFragment())
+                    .addToBackStack(null)
+                    .commit();
         }
 
         return super.onOptionsItemSelected(item);
