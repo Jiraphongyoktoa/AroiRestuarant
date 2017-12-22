@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item android:id="@+id/itemMenuOrder"
+        android:icon="@drawable/ic_action_order"
+        android:title="Order"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/itemMenuNewRegister"
         android:icon="@drawable/ic_action_register"
         android:title="@string/new_register"
