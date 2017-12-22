@@ -36,7 +36,6 @@ public class MainFragment extends Fragment {
     private int indexAnInt = 0;
 
 
-
     public static MainFragment mainInstance(int index) {
 
         MainFragment mainFragment = new MainFragment();
@@ -63,7 +62,7 @@ public class MainFragment extends Fragment {
     private void createListView() {
         ListView listView = getView().findViewById(R.id.livShowPromotion);
         MyConstanct myConstanct = new MyConstanct();
-        String[] columnUserStrings = myConstanct.getColumnUSER();
+        String[] columnUserStrings = myConstanct.getColumnFood();
         String tag = "15novV1";
         String[] categoryStrings = myConstanct.getCategoryStrings();
 
@@ -75,9 +74,13 @@ public class MainFragment extends Fragment {
             Log.d(tag, "JSON ==> " + resultJSON);
 
             JSONArray jsonArray = new JSONArray(resultJSON);
-            String[] titleStrings = new String[jsonArray.length()];
-            String[] detailStrings = new String[jsonArray.length()];
-            String[] iconStrings = new String[jsonArray.length()];
+
+            final String[] titleStrings = new String[jsonArray.length()];
+            final String[] detailStrings = new String[jsonArray.length()];
+            final String[] iconStrings = new String[jsonArray.length()];
+            final String[] catStrings = new String[jsonArray.length()];
+            final String[] priceStrings = new String[jsonArray.length()];
+
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
 
@@ -85,6 +88,8 @@ public class MainFragment extends Fragment {
                 titleStrings[i] = jsonObject.getString(columnUserStrings[2]);
                 detailStrings[i] = jsonObject.getString(columnUserStrings[4]);
                 iconStrings[i] = jsonObject.getString(columnUserStrings[5]);
+                catStrings[i] = jsonObject.getString(columnUserStrings[1]);
+                priceStrings[i] = jsonObject.getString(columnUserStrings[3]);
 
             }
 
@@ -98,6 +103,11 @@ public class MainFragment extends Fragment {
 
 //                    Intent to ServiceOrder
                     Intent intent = new Intent(getActivity(), SerciveOrderActivity.class);
+                    intent.putExtra("NameFood", titleStrings[position]);
+                    intent.putExtra("Category", catStrings[position]);
+                    intent.putExtra("ImagePath", iconStrings[position]);
+                    intent.putExtra("Price", priceStrings[position]);
+                    intent.putExtra("Detail", detailStrings[position]);
                     startActivity(intent);
 
                 }
@@ -112,7 +122,9 @@ public class MainFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         return view;
     }

@@ -12,6 +12,8 @@ import janjira.jiraporn.yonlada.aroirestuarant.fragment.RegisterFragment;
 
 public class SerciveOrderActivity extends AppCompatActivity {
 
+    private String nameFoodString, categoryString, imagePathString, priceString, detailString;
+
 //    Explicit
 
     @Override
@@ -19,13 +21,24 @@ public class SerciveOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sercive_order);
 
+//        Get Value Frome Intent
+        nameFoodString = getIntent().getStringExtra("NameFood");
+        categoryString = getIntent().getStringExtra("Category");
+        imagePathString = getIntent().getStringExtra("ImagePath");
+        priceString = getIntent().getStringExtra("Price");
+        detailString = getIntent().getStringExtra("Detail");
+
 //        Create Toolbar
         createToolbar();
 
 //        Add Fragment
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contenfragmentService, new DetailFragment()).commit();
+                    .add(R.id.contenfragmentService, DetailFragment.detailInstance(
+                            nameFoodString, categoryString,
+                            imagePathString, priceString, detailString))
+                    .addToBackStack(null)
+                    .commit();
         }
 
     }   // Main Method

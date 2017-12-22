@@ -13,7 +13,7 @@ public class MyConstanct {
 
 
     //    Array
-    private String[] columnUSER = new String[]{
+    private String[] columnFood = new String[]{
             "id",
             "Category",
             "NameFood",
@@ -45,8 +45,8 @@ public class MyConstanct {
         return categoryStrings;
     }
 
-    public String[] getColumnUSER() {
-        return columnUSER;
+    public String[] getColumnFood() {
+        return columnFood;
     }
 
     public String getUrlPromotionString() {
