@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView homeTextView, singleFoodTextView, sopeTextView,
             burnTextView, setFoodTextView, nudleTextView, chiliTextView,
             streamTextView, candyTextView, fruidTextView, drinkTextView;
-    private int indexAnInt = 1;
+    private int indexAnInt = 0;
 
 
     @Override

@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import janjira.jiraporn.yonlada.aroirestuarant.R;
-import janjira.jiraporn.yonlada.aroirestuarant.SerciveOrderActivity;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.MyOpenHelper;
 import janjira.jiraporn.yonlada.aroirestuarant.utility.OrderAdapter;
 
