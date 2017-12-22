@@ -11,7 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import janjira.jiraporn.yonlada.aroirestuarant.fragment.DetailFragment;
+import janjira.jiraporn.yonlada.aroirestuarant.fragment.ListOrderFragment;
 import janjira.jiraporn.yonlada.aroirestuarant.fragment.RegisterFragment;
+import janjira.jiraporn.yonlada.aroirestuarant.utility.MyManage;
 
 public class SerciveOrderActivity extends AppCompatActivity {
 
@@ -94,10 +96,25 @@ public class SerciveOrderActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 itemAInt[0] = itemAInt[0] + i;
                 Log.d("22DecV1", "Item ==> " + itemAInt[0]);
+                addDataToSQLite(itemAInt[0]);
                 dialogInterface.dismiss();
             }
         });
         builder.show();
+
+    }
+
+    private void addDataToSQLite(int itemAint) {
+
+        String itemString = Integer.toString(itemAint);
+        MyManage myManage = new MyManage(SerciveOrderActivity.this);
+        myManage.addSQLite(nameFoodString, priceString, itemString);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contenfragmentService, new ListOrderFragment())
+                .commit();
+
+
 
     }
 
